@@ -1,0 +1,1 @@
+<?php echo @$smtp_message; ?><?php /**PATH C:\xampp\htdocs\m\resources\views/mail/test-email.blade.php ENDPATH**/ ?>

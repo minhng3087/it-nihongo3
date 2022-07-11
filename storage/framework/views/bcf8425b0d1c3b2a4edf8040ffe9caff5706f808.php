@@ -1,0 +1,2 @@
+<span class="price"><?php echo e(number_format($data->value,0, '.', '.')); ?>đ</span>
+<?php /**PATH C:\xampp\htdocs\gdigital\resources\views/frontend/components/products/product-version.blade.php ENDPATH**/ ?>

@@ -1,0 +1,1 @@
+<?php echo @$smtp_message; ?><?php /**PATH /var/www/html/gdigital/resources/views/mail/test-email.blade.php ENDPATH**/ ?>
