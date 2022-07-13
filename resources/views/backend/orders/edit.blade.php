@@ -145,8 +145,6 @@
 				                        <th>Số lượng</th>
 				                        <th>Đơn giá</th>
 				                        <th>Thành tiền</th>
-				                        <th>Quà tặng</th>
-				                        {{-- <th>Khách lấy</th> --}}
 				                    </tr>
 				                </thead>
 				                <tbody>
@@ -179,16 +177,6 @@
 				                                    {{ number_format($item->price_total) }}
 				                                </td>
 				                                
-				                                <td>
-				                                	@if (!empty($item->choice))
-				                                		<?php $choice = json_decode( $item->choice ); ?>
-				                                		@foreach ($choice as $value)
-				                                			<li>{{ $value }}</li>
-				                                		@endforeach
-				                                	@else
-				                                	---
-				                                	@endif
-				                                </td>
 				                            </tr>
 				                        @endforeach
 				                    @endif
@@ -197,7 +185,6 @@
 			              	<div class="row" style="font-size: 15px">
 			              		<div class="col-sm-4"></div>
 			              		<div class="col-sm-8">
-			              			
 									  <div class="row" style="margin-top: 10px">
 										<div class="col-sm-6"><b>Tổng tiền khách phải trả </b> </div>
 										<div class="col-sm-6"> <b>{{ number_format($data->subtotal_total) }}đ</b></div>

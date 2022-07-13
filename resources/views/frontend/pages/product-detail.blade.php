@@ -19,7 +19,7 @@
 						<div class="col-md-6 col-sm-6">
 							<div class="slide-thumbs">
 								<div class="slider-for">
-									@if (count($data->ProductImage()->where('type', 'more_image_product')->where('image', '!=', null)->get()))
+									<!-- @if (count($data->ProductImage()->where('type', 'more_image_product')->where('image', '!=', null)->get()))
                                     	@foreach ($data->ProductImage()->where('type', 'more_image_product')->where('image', '!=', null)->get() as $item)
                                     		<div class="carousel-item">
 		                                    	<a title="{{ $data->name }}" href="{{ $item->image }}" data-fancybox="group" class ="lightbox" data-fancybox="lib-1">
@@ -27,21 +27,12 @@
 		                                    	</a>
 		                                    </div>
                                     	@endforeach
-                                    @endif
-                                    
+                                    @endif -->
+									<div class="carousel-item">
+										<img src="{{ $data->image }}" class="img-fluid" width="100%" alt="{{ $data->name }}">
+									</div>
                                 </div>
                                 <!--/.Slides-->
-                                <div class="slider-nav">
-								
-									@if (count($data->ProductImage()->where('image', '!=', null)->where('type', 'more_image_product')->get()))
-										@foreach ($data->ProductImage()->where('image', '!=', null)->where('type', 'more_image_product')->get() as $item)
-											<div class="clc">
-												<img class="" src="{{ $item->image }}" width="100%" alt="{{ $data->name }}">
-											</div>
-										@endforeach
-									@endif
-								
-                                </div>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
@@ -51,35 +42,12 @@
 									<div class="cate">
 										<h1>{{ $data->name }}</h1>
 										<div id="product-version">
-											@if (!is_null($data->sale_price))
-												<?php $price = $data->sale_price; ?>
-												<span class="price">{{ number_format($data->sale_price,0, '.', '.') }}đ</span> 
-												<del class="price" >
-													{{ number_format($data->regular_price,0, '.', '.') }}đ
-												</del>
-											@else
+											
 												<?php $price = $data->regular_price; ?>
 												@if ($data->regular_price != 0)
 													<span class="price">{{ number_format($data->regular_price,0, '.', '.') }}đ</span>
 												@endif
-												
-											@endif
 										</div>
-										@if(count($data->ProductVersion()->get()))
-										<div class="phienban">
-											<ul class="list-inline">
-												<li class="list-inline-item"><span class="tit">CHỌN PHIÊN BẢN</span></li>
-												@foreach ($data->ProductVersion()->get() as $item)
-												<li class="list-inline-item"><span>
-													<input type="radio" class="version-check-box" name="fruit-1" value="{{ $item->key }}">
-													<label for="version-{{ $item->key}}">{{ $item->key }}</label>
-												</span>
-												</li>
-												@endforeach
-												
-											</ul>
-										</div>
-										@endif
 										<div class="desc">
 										{{ @$data->sort_desc }}
 										@if (count($data->ProductGift))
@@ -128,7 +96,6 @@
 										</div>
 									</div>
 								</div>
-
 								<input type="hidden" id="id_price" name="price" value="{{ @$price }}">
 								<input type="hidden" name="id_product" value="{{ $data->id }}">
 							</form>

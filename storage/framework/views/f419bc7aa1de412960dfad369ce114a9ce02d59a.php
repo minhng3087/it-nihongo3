@@ -144,8 +144,6 @@
 				                        <th>Số lượng</th>
 				                        <th>Đơn giá</th>
 				                        <th>Thành tiền</th>
-				                        <th>Quà tặng</th>
-				                        
 				                    </tr>
 				                </thead>
 				                <tbody>
@@ -181,16 +179,6 @@
 
 				                                </td>
 				                                
-				                                <td>
-				                                	<?php if(!empty($item->choice)): ?>
-				                                		<?php $choice = json_decode( $item->choice ); ?>
-				                                		<?php $__currentLoopData = $choice; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-				                                			<li><?php echo e($value); ?></li>
-				                                		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-				                                	<?php else: ?>
-				                                	---
-				                                	<?php endif; ?>
-				                                </td>
 				                            </tr>
 				                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 				                    <?php endif; ?>
@@ -199,7 +187,6 @@
 			              	<div class="row" style="font-size: 15px">
 			              		<div class="col-sm-4"></div>
 			              		<div class="col-sm-8">
-			              			
 									  <div class="row" style="margin-top: 10px">
 										<div class="col-sm-6"><b>Tổng tiền khách phải trả </b> </div>
 										<div class="col-sm-6"> <b><?php echo e(number_format($data->subtotal_total)); ?>đ</b></div>
